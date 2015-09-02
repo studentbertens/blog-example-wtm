@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   resources :posts
+
   root to: "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   #
   #     collection do
   #       get 'sold'
-  #     end 
+  #     end
   #   end
 
   # Example resource route with sub-resources:

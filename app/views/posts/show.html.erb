@@ -1,14 +1,10 @@
-<p id="notice"><%= notice %></p>
+<article>
+  <h1><%= @post.title %></h1>
+  <p><%= @post.body %></p>
+  <p>Creado en <%= time_ago_in_words(@post.created_at)%></p>
+</article>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to "Volver", posts_path %>
+<%= link_to "Editar", edit_post_path(@post)%>
+<%#= link_to "Eliminar", post_path(@post), method: :delete, "data-confirm": "Estas seguro que deseas eliminar este articulo?" %>
+<%= link_to "Eliminar", post_path(@post), method: :delete, data: {confirm: "Estas seguro que deseas eliminar este articulo?"} %>
