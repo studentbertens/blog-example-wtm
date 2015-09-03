@@ -2,6 +2,17 @@
   <h1><%= @post.title %></h1>
   <p><%= @post.body %></p>
   <p>Creado en <%= time_ago_in_words(@post.created_at)%></p>
+
+  <h3>Comentarios</h3>
+
+  <ul>
+    <% @comments.each do |comment| %>
+      <li>
+        <p><%=comment.message%></p>
+      </li>
+    <% end %>
+  </ul>
+
 </article>
 
 <%= link_to "Volver", posts_path %>
