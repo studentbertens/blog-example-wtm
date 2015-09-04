@@ -1,3 +1,19 @@
+# == Route Map
+#
+#      Prefix Verb   URI Pattern               Controller#Action
+#  pages_home GET    /pages/home(.:format)     pages#home
+# pages_about GET    /pages/about(.:format)    pages#about
+#       posts GET    /posts(.:format)          posts#index
+#             POST   /posts(.:format)          posts#create
+#    new_post GET    /posts/new(.:format)      posts#new
+#   edit_post GET    /posts/:id/edit(.:format) posts#edit
+#        post GET    /posts/:id(.:format)      posts#show
+#             PATCH  /posts/:id(.:format)      posts#update
+#             PUT    /posts/:id(.:format)      posts#update
+#             DELETE /posts/:id(.:format)      posts#destroy
+#        root GET    /                         pages#home
+#
+
 Rails.application.routes.draw do
   get 'pages/home'
 
