@@ -18,16 +18,16 @@
   </ul>
 
   <h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-       <%= f.label :message, "Comentarios" %>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+    <p>
+         <%= f.label :message, "Comentarios" %>
 
-      <%= f.text_field :message %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+        <%= f.text_field :message %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
 
 
 
