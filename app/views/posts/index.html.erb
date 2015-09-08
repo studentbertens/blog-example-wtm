@@ -9,4 +9,6 @@
   </article>
 <% end %>
 
-<%= link_to "Nuevo Post", new_post_path, class: "btn btn-default" %>
+<% if user_signed_in? %>
+  <%= link_to "Nuevo Post", new_post_path, class: "btn btn-default" %>
+<% end %>
