@@ -1,7 +1,11 @@
-  <%= link_to "Volver", posts_path %>
+<% content_for :header do %>
+  <%= @post.title %>
+<% end %>
+
+<%= link_to "Volver", posts_path %>
+
 <article>
-  <h1><%= @post.title %></h1>
-  <p><%= @post.body %></p>
+  <p class="lead"><%= @post.body %></p>
   <p>Creado en <%= time_ago_in_words(@post.created_at)%></p>
   <%= link_to "Editar", edit_post_path(@post)%>
   <%= link_to "Eliminar", post_path(@post), method: :delete, data: {confirm: "Estas seguro que deseas eliminar este articulo?"} %>

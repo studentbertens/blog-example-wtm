@@ -1,16 +1,5 @@
-<h1>Editar Post</h1>
-
-<%= form_for @post do |f| %>
-    <div>
-      <%= f.label :title %>:
-      <%= f.text_field :title %>
-    </div>
-    <div>
-      <%= f.label :body %>:
-      <%= f.text_area :body, cols: 10, rows: 10 %>
-    </div>
-    </br>
-    <div>
-      <%= f.submit %>
-    </div>
+<% content_for :header do %>
+  Editar Post
 <% end %>
+
+<%= render "form" %>
