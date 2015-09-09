@@ -14,10 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>
+        <li class="<%= 'active' if current_page?(posts_path) %>">
           <%= link_to "Mis Posts", posts_path %>
         </li>
-        <li>
+        <li class="<%= 'active' if current_page?(about_path) %>">
           <%= link_to "About", about_path %>
         </li>
       </ul>
@@ -30,8 +30,8 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li class="<%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "Sign In", new_user_session_path %></li>
+          <li class="<%= 'active' if current_page?(new_user_registration_path) %>"><%= link_to "Sign Up", new_user_registration_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
