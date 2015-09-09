@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    if params[:search]
+      @posts = Post.where("title like ?", "%#{params[:search]}%")
+    else
+      @posts = Post.all
+    end
   end
 
   def show

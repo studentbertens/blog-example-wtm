@@ -7,8 +7,10 @@
 <article>
   <p class="lead"><%= @post.body %></p>
   <p>Creado en <%= time_ago_in_words(@post.created_at)%></p>
-  <%= link_to "Editar", edit_post_path(@post)%>
-  <%= link_to "Eliminar", post_path(@post), method: :delete, data: {confirm: "Estas seguro que deseas eliminar este articulo?"} %>
+  <% if user_signed_in? %>
+    <%= link_to "Editar", edit_post_path(@post)%>
+    <%= link_to "Eliminar", post_path(@post), method: :delete, data: {confirm: "Estas seguro que deseas eliminar este articulo?"} %>
+  <% end %>
 
   <h3>Comentarios</h3>
 
@@ -16,21 +18,27 @@
     <% @comments.each do |comment| %>
       <li>
         <p><%=comment.message%></p>
-        <%= link_to "Eliminar Comentario", post_comment_path(@post, comment), method: :delete, data: {confirm: "Estas seguro que deseas eliminar este articulo?"} %>
+        <% if user_signed_in? %>
+          <%= link_to "Eliminar Comentario", post_comment_path(@post, comment), method: :delete, data: {confirm: "Estas seguro que deseas eliminar este articulo?"} %>
+        <% end %>
       </li>
     <% end %>
   </ul>
 
-  <h2>Add a comment:</h2>
-  <%= form_for([@post, @post.comments.build]) do |f| %>
-    <p>
-         <%= f.label :message, "Comentarios" %>
+  <% if user_signed_in? %>
+    <h2>Add a comment:</h2>
+    <%= form_for([@post, @post.comments.build]) do |f| %>
+      <p>
+           <%= f.label :message, "Comentarios" %>
 
-        <%= f.text_field :message %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+          <%= f.text_field :message %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  <% else %>
+    <p> Para agregar un comentario debes <%= link_to "iniciar sesion", new_user_session_path%></p>
   <% end %>
 
 
