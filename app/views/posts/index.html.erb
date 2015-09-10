@@ -12,23 +12,16 @@
         <%= f.search_field :title_or_body_cont, class: "form-control",  placeholder: "Search form..."%>
       </div><!-- /input-group -->
     </div>
-    
+
     <div class="col-md-4">
       <div class="input-group">
-        <%= select_tag "per", options_for_select([ "1", "2" ], params[:per]), class: 'form-control' %>
+        <%= select_tag "per", options_for_select([ "2", "10" ], params[:per]), class: 'form-control' %>
       </div>
     </div><!-- /.col-lg-6 -->
   <% end %>
 </div><!-- /.row -->
 
-
-<% @posts.each do |post| %>
-  <article>
-    <h2><%= post.title %></h2>
-    <p><%= truncate(post.body, {length: 140}) %></p>
-    <%= link_to "Ver Post", post_path(post), class: "btn btn-link" %>
-  </article>
-<% end %>
+<%= render partial: "post", collection: @posts %>
 
 <%= paginate @posts %>
 
