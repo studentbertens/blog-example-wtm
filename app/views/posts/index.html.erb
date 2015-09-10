@@ -4,13 +4,19 @@
 
 <div class="row">
   <%= search_form_for @q do |f| %>
-    <div class="col-lg-6">
+    <div class="col-md-6">
       <div class="input-group">
         <span class="input-group-btn">
           <button class="btn btn-default" type="submit">Go!</button>
         </span>
-        <%= f.search_field :title_or_body_cont, class: "form-control", placeholder: "Search form..."%>
+        <%= f.search_field :title_or_body_cont, class: "form-control",  placeholder: "Search form..."%>
       </div><!-- /input-group -->
+    </div>
+    
+    <div class="col-md-4">
+      <div class="input-group">
+        <%= select_tag "per", options_for_select([ "1", "2" ], params[:per]), class: 'form-control' %>
+      </div>
     </div><!-- /.col-lg-6 -->
   <% end %>
 </div><!-- /.row -->

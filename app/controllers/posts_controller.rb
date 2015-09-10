@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @q      = Post.ransack(params[:q])
-    @posts  = @q.result(distinct: true).page(params[:page]).per(2)
+    @posts  = @q.result(distinct: true).page(params[:page]).per(params[:per])
   end
 
   def show
